@@ -16,8 +16,11 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 # Habilitar el módulo de reescritura de Apache
 RUN a2enmod rewrite
 
+WORKDIR /var/www/html/public
+
 # Exponer el puerto 80 para el tráfico web
 EXPOSE 80
 
 # Iniciar Apache en el contenedor
 CMD ["apache2-foreground"]
+
